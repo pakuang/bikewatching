@@ -1,0 +1,84 @@
+body {
+    font: 100%/1.5 system-ui, sans-serif;
+    display: flex;
+    flex-flow: column;
+    max-width: 80em;
+    min-height: 100vh;
+    box-sizing: border-box;
+    margin: auto;
+    padding: 1em;
+}
+
+header {
+    display: flex;
+    justify-content: space-between; /* Push title left, filter right */
+    align-items: center;
+    width: 100%; /* Ensure header spans full width */
+    padding: 10px 0;
+}
+
+h1 {
+    display: flex;
+    align-items: center;
+    font-size: 1.8em;
+    margin: 0; /* Remove any default margin */
+}
+
+#filter-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5em; /* Spacing between filter elements */
+    white-space: nowrap; /* Prevent wrapping */
+}
+
+#time-slider {
+    width: 200px;
+}
+
+#selected-time {
+    font-weight: bold;
+}
+
+#any-time {
+    color: gray;
+    font-style: italic;
+}
+
+.legend {
+    display: flex;
+    align-items: center;
+    gap: 15px;  /* Space between legend items */
+    margin-top: 10px;  /* Space from the map */
+    font-size: 14px;
+}
+
+.legend-label {
+    margin-right: 10px;
+    color: darkgray;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 5px; /* Space between swatch and text */
+}
+
+.legend-swatch {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--color); /* Apply color-mix() from the main styling */
+    border: 1px solid #ccc; /* Light border for contrast */
+}
+
+/* Ensure colors match the map */
+.legend-item {
+    --color-departures: steelblue;
+    --color-arrivals: darkorange;
+    --color: color-mix(
+        in oklch,
+        var(--color-departures) calc(100% * var(--departure-ratio)),
+        var(--color-arrivals)
+    );
+}
+
