@@ -26,23 +26,39 @@ h1 {
 
 #filter-container {
     display: flex;
-    align-items: center;
-    gap: 0.5em; /* Spacing between filter elements */
-    white-space: nowrap; /* Prevent wrapping */
+    flex-direction: column; /* Stack items vertically */
+    gap: 5px;
+    align-items: flex-start; /* Align left */
+}
+
+#slider-row {
+    display: flex;
+    align-items: center; /* Align label and slider in a row */
+    gap: 10px; /* Space between label and slider */
+    width: 100%;
 }
 
 #time-slider {
-    width: 200px;
+    width: 300px;
 }
 
-#selected-time {
-    font-weight: bold;
+#time-container {
+    display: flex;
+    justify-content: flex-end; /* Always align time to the right */
+    width: 100%;
+}
+
+#selected-time, #any-time {
+    min-width: 60px; /* Prevents shifting when empty */
+    text-align: right;
 }
 
 #any-time {
     color: gray;
     font-style: italic;
 }
+
+
 
 .legend {
     display: flex;
